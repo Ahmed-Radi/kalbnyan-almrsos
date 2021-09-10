@@ -1,0 +1,6 @@
+title: Play a song.
+primary actor: user
+Succcess Scenario: system identifies the user.
+		   The user browses the library of available albums. 
+		   They select an album, then browse the songs on that album, 
+		   and then finally the user selects a song and the jukebox plays it. 
