@@ -1,0 +1,14 @@
+funcational 
+
+1- Maintain a library of albums and songs
+2- Allow users browes albums and songs
+3- Allow users to select individual songs
+4- previent users from selecting entire albums
+5- play music
+
+Non-function
+
+1- Intuitive to use while floating i space
+2- Available 24h/7d
+3- low power
+4- updatable

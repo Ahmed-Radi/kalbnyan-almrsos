@@ -1,0 +1,7 @@
+** objects
+1- user
+2- library
+3- album
+4- song
+5- queue
+6- admin. 
