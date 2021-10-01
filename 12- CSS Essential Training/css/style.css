@@ -1,0 +1,79 @@
+/*
+*Color Palete
+#F7FFF7 - ALMOST WHITE
+#343434 - ALMOST BLACK - DARK GRAY
+#A1C607 - BLUE LIGHT
+#2F3061 - BLUE DARK
+#FFE660 - YELLOW
+*/
+:root {
+    --almost-white: #F7FFF7;
+    --almost-black: #343434;
+    --blue-light: #A1C6D7;
+    --blue-dark: #2F3061;
+    --yellow: #FFE660;
+}
+/*Global section
+----------------------------*/
+body {
+    color: var(--almost-black);
+    margin: 0;
+    padding: 0;
+}
+img {
+    width: 300px;
+}
+a {
+    color: var(--yellow);
+}
+a:hover {
+    text-decoration: none;
+}
+h2 {
+    margin: 0;
+}
+.content-wrap {
+    width: 800px;
+    margin: 0 auto;
+    padding: 60px 0;
+}
+/*Profile section
+----------------------------*/
+header {
+    background-color: var(--blue-dark);
+    color: var(--almost-white);
+}
+/*Projects section
+----------------------------*/
+.projects {
+    background-color: var(--almost-white);
+}
+.projects a {
+    color: var(--blue-dark);
+}
+.projects .btn {
+    color: var(--almost-white);
+    background-color: var(--blue-dark);
+    text-decoration: none;
+    padding: 8px;
+    border-radius: 5px;
+    display: inline-block;
+}
+.projects .btn:hover {
+    background-color: rgba(47, 48, 97,0.85)
+}
+/*Work experience section
+----------------------------*/
+.work-experience {
+    background-color: var(--blue-light);
+}
+/*Education section
+----------------------------*/
+
+
+/*Contact info section
+----------------------------*/
+footer {
+    background-color: var(--almost-black);
+    color: var(--almost-white);
+}
