@@ -1,5 +1,5 @@
 function getTip(total, tipPrecent = 0.2) {
-    return total*tipPrecent;
+    return `A ${tipPrecent*100}% tip on ${total} would be $${total*tipPrecent}`;
 }
 
 let one = getTip(50)
