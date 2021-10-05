@@ -17,6 +17,12 @@
 }
 /*Global section
 ----------------------------*/
+html {
+    box-sizing: border-box;
+}
+*::after, *::before {
+    box-sizing: inherit;
+}
 body {
     color: var(--almost-black);
     margin: 0;
@@ -75,6 +81,18 @@ header {
 }
 .projects .btn:hover {
     background-color: rgba(47, 48, 97,0.85)
+}
+.projects .project-item {
+    overflow: hidden;
+    border-bottom: 1px dashed var(--almost-black);
+    padding: 25px 0;
+}
+.project-item img{
+    float: left;
+    margin-right: 20px;
+}
+.projects h3 {
+    margin-top: 0;
 }
 /*Work experience section
 ----------------------------*/
