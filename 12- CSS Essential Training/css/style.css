@@ -57,11 +57,15 @@ h1, h2 {
     margin: 0 auto;
     padding: 60px 0;
 }
+.not-work {
+    cursor:not-allowed;
+}
 /*Profile section
 ----------------------------*/
 header {
     background-color: var(--blue-dark);
     color: var(--almost-white);
+    text-align: center;
 }
 /*Projects section
 ----------------------------*/
@@ -108,4 +112,15 @@ header {
 footer {
     background-color: var(--almost-black);
     color: var(--almost-white);
+    text-align: center;
+}
+.contact-list {
+    list-style-type: none;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+}
+.contact-list a {
+    padding: 10px;
+    display: inline-block;
 }
