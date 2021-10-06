@@ -66,6 +66,13 @@ h3 {
 .item-details h3 ~ p {
     margin: 0;
 }
+.divider > section {
+    border-bottom: 1px dashed var(--almost-black);
+    padding: 25px 0;
+}
+.divider > section:last-of-type {
+    border-bottom: none;
+}
 .not-work {
     cursor:not-allowed;
 }
@@ -97,8 +104,6 @@ header {
 }
 .projects .project-item {
     overflow: hidden;
-    border-bottom: 1px dashed var(--almost-black);
-    padding: 25px 0;
 }
 .project-item img{
     float: left;
