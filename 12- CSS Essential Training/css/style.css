@@ -82,7 +82,6 @@ h3 {
 header {
     background-color: var(--blue-dark);
     color: var(--almost-white);
-    text-align: center;
 }
 /*Projects section
 ----------------------------*/
@@ -106,10 +105,6 @@ header {
 .projects .project-item {
     overflow: hidden;
 }
-.project-item img{
-    float: left;
-    margin-right: 20px;
-}
 .projects h3 {
     margin-top: 0;
 }
@@ -118,12 +113,6 @@ header {
 .work-experience {
     background-color: var(--blue-light);
 }
-.job-item {
-    display: grid;
-    grid-template-columns: 1fr 2fr;
-    column-gap: 20px;
-}
-
 /*Education section
 ----------------------------*/
 .education {
@@ -133,22 +122,62 @@ header {
     padding-bottom: 100px;
 }
 .education p {
-    width: 60px;
+    width: 60%;
 }
 /*Contact info section
 ----------------------------*/
 footer {
     background-color: var(--almost-black);
     color: var(--almost-white);
-    text-align: center;
 }
 .contact-list {
     list-style-type: none;
     padding: 0;
-    display: flex;
-    justify-content: center;
 }
 .contact-list a {
     padding: 10px;
     display: inline-block;
 }
+/*Responsive
+----------------------------*/
+@media screen and (min-width: 750px) {
+    header, footer {
+        text-align: center
+    }
+    /*Projects section
+    ----------------------------*/
+    .project-item img{
+        float: left;
+        margin-right: 20px;
+    }
+    /*Work experience section
+    ----------------------------*/
+    .job-item {
+        display: grid;
+        grid-template-columns: 1fr 2fr;
+        column-gap: 20px;
+    }
+    /*Contact info section
+    ----------------------------*/
+    .contact-list {
+        display: flex;
+        justify-content: center;
+    }
+}
+@media screen and (max-width: 749px) {
+    h1 {
+        font-size: 75px;
+        line-height: 0.9;
+        margin-bottom: 20px;
+    }
+    h1,h2 {
+        line-height: 1;
+    }
+    /*Contact info section
+    ----------------------------*/
+    .contact-list a {
+        padding: 5px;
+    }
+}
+
+
