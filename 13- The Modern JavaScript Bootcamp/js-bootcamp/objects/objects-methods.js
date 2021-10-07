@@ -16,8 +16,5 @@ let resturant = {
 
 resturant.setParty(72)
 console.log(resturant.checkAvailability(4))
-console.log(resturant)
-console.log('dfsfdsffsdfdfsdfsdfds*************')
 resturant.removeParty(5)
-console.log(resturant)
 console.log(resturant.checkAvailability(4))
