@@ -8,4 +8,6 @@ todo.push("new todo")
 todo.shift();
 
 console.log(`You have ${todo.length} todos`)
-console.log(todo)
+todo.forEach(function(items, index) {
+    console.log(`${index+1}. ${items}`)
+})
