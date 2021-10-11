@@ -11,3 +11,7 @@ console.log(`You have ${todo.length} todos`)
 todo.forEach(function(items, index) {
     console.log(`${index+1}. ${items}`)
 })
+
+for(let counter = 0; counter <= todo.length -1; counter++) {
+    console.log(`${counter+1}. ${todo[counter]}`)
+}
