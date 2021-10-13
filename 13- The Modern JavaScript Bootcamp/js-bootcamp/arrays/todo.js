@@ -1,11 +1,11 @@
 let todos = [
     {
         text:"walkup",
-        complate: false
+        complete: false
     },
     {
         text:'pray',
-        complate:true
+        complete:true
     },
     {
         text:'play games',
@@ -21,25 +21,34 @@ let todos = [
     }
 ]
 
+//Find uncomplated Todo
+const getThingsTodo = function (todos) {
+    return todos.filter(function (todo) {
+        // return todo.complete === false;
+        return !todo.complete;
+    })
+}
+console.log(getThingsTodo(todos))
+
+// Remove Todo
+// const removeNote = function(todo, todoText) {
+//     const index = todo.findIndex(function(todos){
+//         return todos.text.toLowerCase() === todoText.toLowerCase()
+//     })
+//     if(index !== -1){
+//         todo.splice(index, 1)
+//     }
+//     return todo
+// }
+// console.log(removeNote(todos, 'study'))
+
 // const removeNote = function(todos, todoText) {
 //     const findToDo = todos.find(function(todo){
 //         return todo.text.toLowerCase() === todoText.toLowerCase()
 //     })
 //     todos.splice(todos.indexOf(findToDo), 1)
 // }
-
-
-const removeNote = function(todo, todoText) {
-    const index = todo.findIndex(function(todos){
-        return todos.text.toLowerCase() === todoText.toLowerCase()
-    })
-    if(index !== -1){
-        todo.splice(index, 1)
-    }
-    return todo
-}
-console.log(removeNote(todos, 'study'))
-console.log(todos)
+// console.log(todos)
 
 
 
