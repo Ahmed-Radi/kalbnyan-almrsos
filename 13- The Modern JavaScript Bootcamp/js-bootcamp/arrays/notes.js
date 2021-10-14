@@ -1,20 +1,35 @@
 const notes = [{
-    title:'My next trip',
-    body:'My next trip'
-},{
-    title:'Good days next',
-    body:'Eating and outing'
-},{
-    title:'Office modification',
-    body:'Get a new seat'
+    title: 'My next trip',
+    body: 'I would like to go to Spain'
+}, {
+    title: 'Habbits to work on',
+    body: 'Exercise. Eating a bit better.'
+}, {
+    title: 'Office modification',
+    body: 'Get a new seat'
 }]
 
-const findNote = function (notes, noteTitle) {
-    return notes.find(function (note, index) {
-        return note.title.toLowerCase() === noteTitle.toLowerCase()
+const sortNotes = function (notes) {
+    notes.sort(function (a, b) {
+        if (a.title.toLowerCase() < b.title.toLowerCase()) {
+            return -1;
+        } else if (b.title.toLowerCase() < a.title.toLowerCase()) {
+            return 1;
+        } else {
+            return 0;
+        }
     })
 }
-console.log(findNote(notes, 'trip'))
+sortNotes(notes)
+console.log(notes)
+
+
+// const findNote = function (notes, noteTitle) {
+//     return notes.find(function (note, index) {
+//         return note.title.toLowerCase() === noteTitle.toLowerCase()
+//     })
+// }
+// console.log(findNote(notes, 'trip'))
 
 // const findNote = function(notes, query) {
 //     return notes.filter(function (note) {

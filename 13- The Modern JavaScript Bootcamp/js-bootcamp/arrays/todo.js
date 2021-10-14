@@ -21,6 +21,19 @@ let todos = [
     }
 ]
 
+const sortTodos = function (todos) {
+    todos.sort(function (a) {
+        if(!a.complete && b.complete){ // a = false & b = true
+            return -1
+        } else if (a.complete && !b.complete) { // a = true & b = false
+            return 1
+        } else {
+            return 0
+        }
+    })
+}
+sortTodos(todos)
+console.log(todos)
 //Find uncomplated Todo
 const getThingsTodo = function (todos) {
     return todos.filter(function (todo) {
@@ -28,7 +41,7 @@ const getThingsTodo = function (todos) {
         return !todo.complete;
     })
 }
-console.log(getThingsTodo(todos))
+// console.log(getThingsTodo(todos))
 
 // Remove Todo
 // const removeNote = function(todo, todoText) {
@@ -53,7 +66,7 @@ console.log(getThingsTodo(todos))
 
 
 
-
+// OLD VERSION
 // let todo = ["walkup", 'pray', 'play games', 'study', 'study again']
 // //delete third item
 // todo.splice(2,1)
