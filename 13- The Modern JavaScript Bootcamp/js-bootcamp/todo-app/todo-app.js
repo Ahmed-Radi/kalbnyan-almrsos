@@ -36,10 +36,16 @@ todos.forEach(function (todos) {
     document.querySelector('body').appendChild(p)
 })
 
-//Add todo Button
+//"Add todo" Button
 document.querySelector('#add-todo').addEventListener('click', function (e) {
     console.log('add Todo')
 })
+
+//Add toDo to the page
+document.querySelector('#new-todo-text').addEventListener('input', function (e) {
+    console.log(e.target.value)
+})
+
 
 //Old Code
 // const addText = document.createElement('p');
