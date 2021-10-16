@@ -15,7 +15,7 @@ const renderNotes = function (notes, filters) {
     const filterNotes = notes.filter(function (note) {
         return note.title.toLowerCase().includes(filters.searchText.toLowerCase())
     })
-    document.querySelector('#notes').innerHTML = '' //used to remove all notes to select specify notes
+    document.querySelector('#notes').innerHTML = '' //used to remove all notes to select specify notes only
     //show specify notes
     filterNotes.forEach(function (note) {
         const notEl = document.createElement('p');
