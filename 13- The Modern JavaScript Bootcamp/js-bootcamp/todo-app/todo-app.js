@@ -20,6 +20,7 @@ let todos = [
         complete: true
     }
 ]
+
 // know un complete todos
 const countUnComplete = todos.filter(function(todos) {
     return !todos.complete
@@ -27,6 +28,7 @@ const countUnComplete = todos.filter(function(todos) {
 const summary = document.createElement('h2')
 summary.textContent = `you have ${countUnComplete.length} todos left`
 document.querySelector('body').appendChild(summary)
+
 //Display Content
 todos.forEach(function (todos) {
     const p = document.createElement('p')
@@ -34,6 +36,12 @@ todos.forEach(function (todos) {
     document.querySelector('body').appendChild(p)
 })
 
+//Add todo Button
+document.querySelector('#add-todo').addEventListener('click', function (e) {
+    console.log('add Todo')
+})
+
+//Old Code
 // const addText = document.createElement('p');
 // document.querySelector('body').forEach(function(text) {
 //     addText.textContent = todos.text;

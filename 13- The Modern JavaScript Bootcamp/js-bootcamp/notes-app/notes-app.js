@@ -8,11 +8,22 @@ const notes = [{
     title: 'Office modification',
     body: 'Get a new seat'
 }]
-const ps = document.querySelectorAll('.info')
-ps.forEach(function (p) {
-    p.textContent = '*******'
+
+document.querySelector('#create-note').addEventListener('click',function () {
+
 })
 
-const newParagraph = document.createElement('p');
-newParagraph.textContent = 'The Ahmed Radi';
-document.querySelector('body').appendChild(newParagraph)
+document.querySelector('#remove-all').addEventListener('click',function () {
+    document.querySelectorAll('.note').forEach(function (note) {
+        note.remove();
+    })
+})
+
+// const ps = document.querySelectorAll('.info')
+// ps.forEach(function (p) {
+//     p.textContent = '*******'
+// })
+
+// const newParagraph = document.createElement('p');
+// newParagraph.textContent = 'The Ahmed Radi';
+// document.querySelector('body').appendChild(newParagraph)
