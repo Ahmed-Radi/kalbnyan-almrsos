@@ -18,7 +18,7 @@ let todos = [
     {
         text:'study again',
         complete: true
-    }
+    },
 ]
 
 //input Filter Todo
@@ -56,14 +56,8 @@ const renderTodos = function (todos, filters) {
     //     document.querySelector('#todos').appendChild(parTodo)
     // })
 }
+// filter todos
 renderTodos(todos, filters)
-// know un complete todos
-
-
-//"Add todo" Button
-document.querySelector('#add-todo').addEventListener('click', function (e) {
-    console.log('add Todo')
-})
 
 //Get input to search for specify Todo
 document.querySelector('#search-text').addEventListener('input', function (e) {
@@ -71,10 +65,31 @@ document.querySelector('#search-text').addEventListener('input', function (e) {
     renderTodos(todos, filters)
 })
 
-//Add toDo to the page
-document.querySelector('#new-todo-text').addEventListener('input', function (e) {
-    console.log(e.target.value)
+// Add Todos to the page
+document.querySelector('#todo-name').addEventListener('submit', function (e) {
+    e.preventDefault();
+
+    //Add todo to array Todos
+    todos.push({
+        text: e.target.elements.todoText.value,
+        complete: false
+    },)
+    renderTodos(todos, filters)
+
+    //remove value from input after submit
+    e.target.elements.todoText.value = '';
 })
+
+// //"Add todo" Button
+// document.querySelector('#add-todo').addEventListener('click', function (e) {
+//     console.log('add Todo')
+// })
+
+// //Add toDo to the page
+// document.querySelector('#new-todo-text').addEventListener('input', function (e) {
+//     console.log(e.target.value)
+// })
+
 //Complate Add toDo to the page
 // document.querySelector('#new-todo-text').addEventListener('change', function (event) {
 //     document.querySelector('#add-todo').addEventListener('click', function (e) {
