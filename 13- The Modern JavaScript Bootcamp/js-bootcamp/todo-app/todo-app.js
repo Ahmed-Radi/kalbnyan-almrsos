@@ -23,13 +23,25 @@ let todos = [
 
 //input Filter Todo
 const filters = {
-    searchText: ''
+    searchText: '',
+    hideCompleted: false,
 }
 //Filter specify Todo
 const renderTodos = function (todos, filters) {
-    const filterTodos = todos.filter(function (todo) {
+
+    let filterTodos = todos.filter(function (todo) {
         return todo.text.toLowerCase().includes(filters.searchText.toLowerCase())
     })
+
+    filterTodos = filterTodos.filter(function (todo) {
+        return !filters.hideCompleted || !todo.complete
+        // if(filters.hideCompleted) {
+        //     return !todo.complete
+        // } else {
+        //     return true
+        // }
+    })
+
     const countUnComplete = filterTodos.filter(function(todo) {
         return !todo.complete
     })
@@ -78,6 +90,17 @@ document.querySelector('#todo-name').addEventListener('submit', function (e) {
 
     //remove value from input after submit
     e.target.elements.todoText.value = '';
+})
+
+//Filter complete todos
+// const filterUncomplateTodo = todos.filter(function (todo) {
+//     return !todo.complete
+// })
+// console.log(filterUncomplateTodo)
+// checkbox Hide all complete todo
+document.querySelector('#hide-completed').addEventListener('change', function (e) {
+    filters.hideCompleted = e.target.checked
+    renderTodos(todos, filters)
 })
 
 // //"Add todo" Button
