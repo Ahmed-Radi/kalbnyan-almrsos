@@ -29,6 +29,10 @@ document.querySelector('#create-note').addEventListener('click',function () {
 
 })
 
+document.querySelector('#filter-by').addEventListener('change',function (e) {
+    console.log(e.target.value)
+})
+
 // document.querySelector('#remove-all').addEventListener('click',function () {
 //     document.querySelectorAll('.note').forEach(function (note) {
 //         note.remove();
