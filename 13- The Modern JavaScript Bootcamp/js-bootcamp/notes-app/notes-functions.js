@@ -1,4 +1,4 @@
-//Read exiscting note from localStorage
+// Read exiscting note from localStorage
 const getSaveNotes = function () {
     const notesJSON = localStorage.getItem('notes')
     if(notesJSON !== null) {
