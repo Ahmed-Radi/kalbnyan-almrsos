@@ -1,31 +1,16 @@
-let todos = [
-    {
-        text:"walkup",
-        complete: false
-    },
-    {
-        text:'pray',
-        complete:true
-    },
-    {
-        text:'play games',
-        complete: true
-    },
-    {
-        text:'study',
-        complete: false
-    },
-    {
-        text:'study again',
-        complete: true
-    },
-]
+let todos = []
 
 //input Filter Todo
 const filters = {
     searchText: '',
     hideCompleted: false,
 }
+//Check if existing saved data
+const todosJSON = localStorage.getItem('todos')
+if(todosJSON !== null){
+    todos = JSON.parse(todosJSON)
+}
+
 //Filter specify Todo
 const renderTodos = function (todos, filters) {
 
@@ -86,6 +71,7 @@ document.querySelector('#todo-name').addEventListener('submit', function (e) {
         text: e.target.elements.todoText.value,
         complete: false
     },)
+    localStorage.setItem('todos', JSON.stringify(todos))
     renderTodos(todos, filters)
 
     //remove value from input after submit

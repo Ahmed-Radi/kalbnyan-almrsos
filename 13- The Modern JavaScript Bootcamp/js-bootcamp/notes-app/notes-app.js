@@ -1,16 +1,13 @@
-const notes = [{
-    title: 'My next trip',
-    body: 'I would like to go to Spain'
-}, {
-    title: 'Habbits to work on',
-    body: 'Exercise. Eating a bit better.'
-}, {
-    title: 'Office modification',
-    body: 'Get a new seat'
-}]
+let notes = []
 const filters = {
     searchText: ''
 }
+//Check if existing saved data
+const notesJSON = localStorage.getItem('notes')
+if(notesJSON !== null) {
+    notes = JSON.parse(notesJSON)
+}
+
 const renderNotes = function (notes, filters) {
     const filterNotes = notes.filter(function (note) {
         return note.title.toLowerCase().includes(filters.searchText.toLowerCase())
@@ -18,15 +15,24 @@ const renderNotes = function (notes, filters) {
     document.querySelector('#notes').innerHTML = '' //used to remove all notes to select specify notes only
     //show specify notes
     filterNotes.forEach(function (note) {
-        const notEl = document.createElement('p');
-        notEl.textContent = note.title;
-        document.querySelector('#notes').appendChild(notEl)
+        const noteEl = document.createElement('p');
+        if(note.title.length > 0) {
+            noteEl.textContent = note.title;
+        } else {
+            noteEl.textContent = 'Unnamed Notes';
+        }
+        document.querySelector('#notes').appendChild(noteEl)
     })
 }
 renderNotes(notes, filters)
 
 document.querySelector('#create-note').addEventListener('click',function () {
-
+    notes.push({
+        title: '',
+        body: ''
+    },)
+    localStorage.setItem('notes', JSON.stringify(notes))
+    renderNotes(notes, filters)
 })
 
 document.querySelector('#filter-by').addEventListener('change',function (e) {
