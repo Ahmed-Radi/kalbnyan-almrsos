@@ -22,11 +22,6 @@ const renderTodos = function (todos, filters) {
 
     filterTodos = filterTodos.filter(function (todo) {
         return !filters.hideCompleted || !todo.complete
-        // if(filters.hideCompleted) {
-        //     return !todo.complete
-        // } else {
-        //     return true
-        // }
     })
     // Count unComplete todos
     const countUnComplete = filterTodos.filter(function(todo) {
@@ -41,19 +36,28 @@ const renderTodos = function (todos, filters) {
         document.querySelector('#todos').appendChild(genrateTodoDOM(todos))
     })
 
-    // document.querySelector('#todos').innerHTML = ''
-    // filterTodos.forEach(function (todo) {
-    //     const parTodo= document.createElement('p')
-    //     parTodo.textContent = todo.text;
-    //     document.querySelector('#todos').appendChild(parTodo)
-    // })
 }
 
 // Get the DOM elements from an individual note
 const genrateTodoDOM = function (todos) {
-    const p = document.createElement('p')
-    p.textContent = todos.text;
-    return p;
+    const todoEl = document.createElement('div');
+    const checkbox = document.createElement('input');
+    const todoText = document.createElement('span');
+    const removeButton = document.createElement('button')
+
+    // Setup todo Checkbox
+    checkbox.setAttribute('type', 'checkbox');
+    todoEl.appendChild(checkbox)
+
+    // Setup todo text
+    todoText.textContent = todos.text;
+    todoEl.appendChild(todoText)
+
+    // Setup todo button
+    removeButton.textContent = 'X';
+    todoEl.appendChild(removeButton);
+
+    return todoEl;
 }
 const genrateSummaryDOM = function (countUnComplete) {
     const summary = document.createElement('h2')

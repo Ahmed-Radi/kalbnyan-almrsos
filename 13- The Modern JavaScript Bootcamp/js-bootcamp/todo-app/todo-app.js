@@ -31,16 +31,17 @@ document.querySelector('#todo-name').addEventListener('submit', function (e) {
     e.target.elements.todoText.value = '';
 })
 
-//Filter complete todos
-// const filterUncomplateTodo = todos.filter(function (todo) {
-//     return !todo.complete
-// })
-// console.log(filterUncomplateTodo)
 // checkbox Hide all complete todo
 document.querySelector('#hide-completed').addEventListener('change', function (e) {
     filters.hideCompleted = e.target.checked
     renderTodos(todos, filters)
 })
+
+//Filter complete todos
+// const filterUncomplateTodo = todos.filter(function (todo) {
+//     return !todo.complete
+// })
+// console.log(filterUncomplateTodo)
 
 // //"Add todo" Button
 // document.querySelector('#add-todo').addEventListener('click', function (e) {
