@@ -13,6 +13,16 @@ const saveTodos = function (todos) {
     localStorage.setItem('todos', JSON.stringify(todos))
 }
 
+// Remove Todo by ID
+const removeTodo = function (id) {
+    const todoIndex = todos.findIndex(function (todo) {
+        return todo.id === id;
+    })
+    if(todoIndex > -1) {
+        todos.splice(todoIndex, 1)
+    }
+}
+
 // Render application todos based on filters
 const renderTodos = function (todos, filters) {
 
@@ -39,7 +49,7 @@ const renderTodos = function (todos, filters) {
 }
 
 // Get the DOM elements from an individual note
-const genrateTodoDOM = function (todos) {
+const genrateTodoDOM = function (todo) {
     const todoEl = document.createElement('div');
     const checkbox = document.createElement('input');
     const todoText = document.createElement('span');
@@ -50,12 +60,17 @@ const genrateTodoDOM = function (todos) {
     todoEl.appendChild(checkbox)
 
     // Setup todo text
-    todoText.textContent = todos.text;
+    todoText.textContent = todo.text;
     todoEl.appendChild(todoText)
 
     // Setup todo button
     removeButton.textContent = 'X';
     todoEl.appendChild(removeButton);
+    removeButton.addEventListener('click', function () {
+        removeTodo(todo.id);
+        saveTodos(todos);
+        renderTodos(todos, filters);
+    })
 
     return todoEl;
 }
