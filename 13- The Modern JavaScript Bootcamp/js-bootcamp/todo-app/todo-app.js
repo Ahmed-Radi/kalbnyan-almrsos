@@ -21,6 +21,7 @@ document.querySelector('#todo-name').addEventListener('submit', function (e) {
 
     //Add todo to array Todos
     todos.push({
+        id: uuidv4(),
         text: e.target.elements.todoText.value,
         complete: false
     },)
