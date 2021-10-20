@@ -9,7 +9,7 @@ const filters = {
 // filter todos
 renderTodos(todos, filters)
 
-//Get input to search for specify Todo
+// Get input to search for specify Todo
 document.querySelector('#search-text').addEventListener('input', function (e) {
     filters.searchText = e.target.value;
     renderTodos(todos, filters)
@@ -23,7 +23,7 @@ document.querySelector('#todo-name').addEventListener('submit', function (e) {
     todos.push({
         id: uuidv4(),
         text: e.target.elements.todoText.value,
-        complete: false
+        complete: false,
     },)
     saveTodos(todos)
     renderTodos(todos, filters)

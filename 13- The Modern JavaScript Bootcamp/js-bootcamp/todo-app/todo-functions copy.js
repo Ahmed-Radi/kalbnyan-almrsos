@@ -23,16 +23,6 @@ const removeTodo = function (id) {
     }
 }
 
-// Setup todo
-const toggleTodo = function (id) {
-    const todo = todos.find (function (todo) {
-        return todo.id === id
-    })
-    if(todo !== undefined) {
-        todo.complete = !todo.complete
-    }
-}
-
 // Render application todos based on filters
 const renderTodos = function (todos, filters) {
 
@@ -69,13 +59,6 @@ const genrateTodoDOM = function (todo) {
     checkbox.setAttribute('type', 'checkbox');
     checkbox.checked = todo.complete
     todoEl.appendChild(checkbox)
-    checkbox.addEventListener("change" , function () {
-        toggleTodo(todo.id)
-        saveTodos(todos);
-        renderTodos(todos, filters);
-    })
-
-
 
     // Setup todo text
     todoText.textContent = todo.text;
