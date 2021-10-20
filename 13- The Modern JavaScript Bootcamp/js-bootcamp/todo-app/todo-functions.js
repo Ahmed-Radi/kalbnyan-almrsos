@@ -75,8 +75,6 @@ const genrateTodoDOM = function (todo) {
         renderTodos(todos, filters);
     })
 
-
-
     // Setup todo text
     todoText.textContent = todo.text;
     todoEl.appendChild(todoText)
