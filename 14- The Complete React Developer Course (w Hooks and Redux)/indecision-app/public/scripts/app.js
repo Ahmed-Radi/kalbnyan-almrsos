@@ -1,11 +1,11 @@
 'use strict';
 
-console.log('App.js is running!');
-
 var app = {
     title: 'Indecision App',
-    subtitle: 'Put your life in the hands of a computer'
+    subtitle: 'Put your life in the hands of a computer',
+    options: ['One', 'Two']
 };
+
 var template = React.createElement(
     'div',
     null,
@@ -14,23 +14,24 @@ var template = React.createElement(
         null,
         app.title
     ),
-    React.createElement(
+    app.subtitle && React.createElement(
         'p',
         null,
         app.subtitle
     ),
+    app.options[0].length > 0 ? 'Here are your options' : 'No options',
     React.createElement(
         'ol',
         null,
         React.createElement(
             'li',
             null,
-            'Item one'
+            app.options[0].length > 0 ? 'Here are your options ' + app.options[0] : 'No options'
         ),
         React.createElement(
             'li',
             null,
-            'Item two'
+            app.options[1].length > 0 ? 'Here are your options ' + app.options[1] : 'No options'
         )
     )
 );
