@@ -1,4 +1,4 @@
-// Read exiscting note from localStorage
+// Read existing notes from localStorage
 const getSaveNotes = function () {
     const notesJSON = localStorage.getItem('notes')
     if(notesJSON !== null) {
@@ -8,12 +8,12 @@ const getSaveNotes = function () {
     }
 }
 
-// Save notes to localStorage
+// Save the notes to localStorage
 const saveNotes = function (notes) {
     localStorage.setItem('notes', JSON.stringify(notes))
 }
 
-// Remove notes from the list of notes
+// Remove a note from the list
 const removeNote = function (id) {
     const noteIndex = notes.findIndex(function (note) {
         return note.id === id
@@ -24,13 +24,13 @@ const removeNote = function (id) {
     }
 }
 
-//Genrate the DOM structure for the a note
-const genrateNoteDOM = function (note) {
+// Generate the DOM structure for a note
+const generateNoteDOM = function (note) {
     const noteEl = document.createElement('div');
     const textEl = document.createElement('a');
     const button = document.createElement('button');
 
-    //Setup the remove button
+    // Setup the remove note button
     button.textContent = 'X'
     noteEl.appendChild(button)
     button.addEventListener('click', function () {
@@ -39,7 +39,7 @@ const genrateNoteDOM = function (note) {
         renderNotes(notes, filters);
     })
 
-    //Setup the note title text
+    // Setup the note title text
     if(note.title.length > 0) {
         textEl.textContent = note.title;
     } else {
@@ -59,7 +59,7 @@ const renderNotes = function (notes, filters) {
     document.querySelector('#notes').innerHTML = '' //used to remove all notes to select specify notes only
     //show specify notes
     filterNotes.forEach(function (note) {
-        const noteEl = genrateNoteDOM(note)
+        const noteEl = generateNoteDOM(note)
         document.querySelector('#notes').appendChild(noteEl)
     })
 }

@@ -32,6 +32,13 @@ document.querySelector('#search-text').addEventListener('input',function (e) {
     renderNotes(notes, filters)
 })
 
+window.addEventListener('storage', function (e) {
+    if (e.key == 'notes') {
+        notes = JSON.parse(e.newValue)
+        renderNotes(notes, filters)
+    }
+})
+
 // document.querySelector('#name-form').addEventListener('submit', function(e) {
 //     e.preventDefault();
 //     console.log(e.target.elements.firstName.value)
