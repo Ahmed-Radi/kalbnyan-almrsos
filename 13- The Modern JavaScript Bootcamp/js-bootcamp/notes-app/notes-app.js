@@ -39,6 +39,13 @@ window.addEventListener('storage', function (e) {
     }
 })
 
+const dayOne = new Date('march 10 2005 12:00:01')
+const dayTwo = new Date()
+const dayOneTimeStamp = dayOne.getTime()
+const dayTwoTimeStamp = dayTwo.getTime()
+
+dayOneTimeStamp < dayTwoTimeStamp ? console.log(dayTwo.toString()) : console.log(dayOne.toString())
+
 // document.querySelector('#name-form').addEventListener('submit', function(e) {
 //     e.preventDefault();
 //     console.log(e.target.elements.firstName.value)
