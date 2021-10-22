@@ -7,11 +7,14 @@ renderNotes(notes, filters)
 
 document.querySelector('#create-note').addEventListener('click',function () {
     const id = uuidv4();
+    const timeStamp = moment().valueOf();
 
     notes.push({
         id: uuidv4(),
         title: '',
-        body: ''
+        body: '',
+        createdAt: timeStamp,
+        updatedAt: timeStamp,
     },)
     saveNotes(notes)
     location.assign(`./edit.html#${id}`)
@@ -38,10 +41,6 @@ window.addEventListener('storage', function (e) {
         renderNotes(notes, filters)
     }
 })
-
-const birthdar = moment()
-birthdar.year(1999).month(8).date(9);
-console.log(birthdar.format('MMM Do, YYYY'))
 
 // document.querySelector('#name-form').addEventListener('submit', function(e) {
 //     e.preventDefault();
