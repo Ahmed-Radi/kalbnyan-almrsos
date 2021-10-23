@@ -6,7 +6,7 @@ let noteId = location.hash.substring(1)
 let notes = getSaveNotes()
 
 let note = notes.find((note) => noteId === note.id)
-if(note === undefined) {
+if(!note) {
     location.assign('./index.html')
 }
 
@@ -40,7 +40,7 @@ window.addEventListener('storage', (e) => {
         notes = JSON.parse(e.newValue)
 
         note = notes.find((note) => noteId === note.id)
-        if(note === undefined) {
+        if(!note) {
             location.assign('./index.html')
         }
 
