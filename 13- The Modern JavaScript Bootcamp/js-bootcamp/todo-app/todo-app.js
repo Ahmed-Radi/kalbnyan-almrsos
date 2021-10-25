@@ -1,3 +1,5 @@
+'use strict'
+
 const todos = getSaveTodos()
 
 //input Filter Todo
