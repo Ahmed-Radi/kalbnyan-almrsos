@@ -3,18 +3,18 @@ const guessEl = document.querySelector('#guesses');
 const game1 = new Hangman('Ahmed', 5)
 
 // add guess entered
-puzzleEl.textContent = game1.getPuzzle();
+puzzleEl.textContent = game1.puzzle;
 // Guesses left
-guessEl.textContent = game1.getStatusMessage();
+guessEl.textContent = game1.statusMessage;
 
 window.addEventListener('keypress',(e) => {
     const guess = String.fromCharCode(e.charCode);
     game1.makeGuess(guess);
 
     // word you want to Guess
-    puzzleEl.textContent = game1.getPuzzle();
+    puzzleEl.textContent = game1.puzzle;
     // Guesses left
-    guessEl.textContent = game1.getStatusMessage();
+    guessEl.textContent = game1.statusMessage;
 
 })
 
