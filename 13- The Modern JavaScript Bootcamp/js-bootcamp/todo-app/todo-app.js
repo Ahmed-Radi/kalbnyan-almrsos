@@ -41,10 +41,10 @@ document.querySelector('#hide-completed').addEventListener('change', (e) => {
 })
 
 //Filter complete todos
-// const filterUncomplateTodo = todos.filter(function (todo) {
+// const filterUncompleteTodo = todos.filter(function (todo) {
 //     return !todo.complete
 // })
-// console.log(filterUncomplateTodo)
+// console.log(filterUncompleteTodo)
 
 // //"Add todo" Button
 // document.querySelector('#add-todo').addEventListener('click', function (e) {
@@ -56,7 +56,7 @@ document.querySelector('#hide-completed').addEventListener('change', (e) => {
 //     console.log(e.target.value)
 // })
 
-//Complate Add toDo to the page
+//Complete Add toDo to the page
 // document.querySelector('#new-todo-text').addEventListener('change', function (event) {
 //     document.querySelector('#add-todo').addEventListener('click', function (e) {
 //     const par = document.createElement('p')
