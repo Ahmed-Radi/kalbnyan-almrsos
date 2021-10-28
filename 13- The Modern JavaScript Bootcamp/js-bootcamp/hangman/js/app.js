@@ -9,7 +9,6 @@ guessEl.textContent = game1.getStatusMessage();
 
 window.addEventListener('keypress',(e) => {
     const guess = String.fromCharCode(e.charCode);
-    console.log(guess);
     game1.makeGuess(guess);
 
     // word you want to Guess
