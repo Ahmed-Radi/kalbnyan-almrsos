@@ -20,9 +20,41 @@ class Person {
     }
 }
 
-const me = new Person('Ahmed', 'Radi', 21, ['games', 'study']);
-me.setName('Mo la')
-console.log(me.getBio())
+class Employee extends Person {
+    constructor(firstName, lastName, age, position, likes) {
+        super(firstName, lastName, age, likes=[]);
+        this.position = position;
+    }
+    getBio() {
+        return `${this.firstName} ${this.lastName} is a ${this.position}`
+    }
+    getYearsLeft() {
+        return 65 - this.age
+    }
+}
 
-const player2 = new Person('ali', 'Radi', 21);
-console.log(player2.getBio())
+class Student extends Person {
+    constructor(firstName, lastName, age, grade, likes) {
+        super(firstName, lastName, age, likes=[]);
+        this.grade = grade;
+    }
+    getBio() {
+        const status = this.grade >= 70 ? 'passing' : 'failing';
+        return `${this.firstName} is ${status} the class`
+    }
+    updateGrade(change) {
+        this.grade += change;
+    }
+}
+
+const me = new Student('Ahmed', 'Radi', 20, 90, ['gaming','teaching']);
+console.log(me.getBio())
+me.updateGrade(-50)
+console.log(me.getBio())
+// const me = new Employee('Ahmed', 'Radi', 21, ['games', 'study']);
+// me.setName('Mo la')
+// console.log(me.getBio())
+// console.log(me.getYearsLeft())
+
+// const player2 = new Person('ali', 'Radi', 21);
+// console.log(player2.getBio())
