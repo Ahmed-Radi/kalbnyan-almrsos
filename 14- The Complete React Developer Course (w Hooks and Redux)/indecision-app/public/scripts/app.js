@@ -63,6 +63,39 @@ var templateTwo = React.createElement(
     )
 );
 
+var count = 0;
+
+var templateThree = React.createElement(
+    'div',
+    null,
+    React.createElement(
+        'h1',
+        null,
+        'count: ',
+        count
+    ),
+    React.createElement(
+        'button',
+        { onClick: function onClick(count) {
+                return console.log('AddOne');
+            } },
+        '+1'
+    ),
+    React.createElement(
+        'button',
+        { onClick: function onClick(count) {
+                return console.log('MinusOne');
+            } },
+        ' -1'
+    ),
+    React.createElement(
+        'button',
+        { onClick: function onClick(count) {
+                return console.log('Reset');
+            } },
+        'reset'
+    )
+);
 var appRoot = document.getElementById('app');
 
-ReactDOM.render(template, appRoot);
+ReactDOM.render(templateThree, appRoot);

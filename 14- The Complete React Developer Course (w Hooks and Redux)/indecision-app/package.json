@@ -9,6 +9,7 @@
     "author": "",
     "license": "ISC",
     "dependencies": {
+        "babel-loader": "^8.2.3",
         "babel-preset-env": "^1.7.0",
         "babel-preset-react": "^6.24.1"
     },
