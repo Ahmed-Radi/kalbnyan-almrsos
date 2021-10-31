@@ -79,16 +79,13 @@ var addOptions = function addOptions() {
         React.createElement(
             'ol',
             null,
-            React.createElement(
-                'li',
-                null,
-                app.options[0]
-            ),
-            React.createElement(
-                'li',
-                null,
-                app.options[1]
-            )
+            app.options.map(function (option) {
+                return React.createElement(
+                    'li',
+                    { key: option },
+                    option
+                );
+            })
         ),
         React.createElement(
             'form',
