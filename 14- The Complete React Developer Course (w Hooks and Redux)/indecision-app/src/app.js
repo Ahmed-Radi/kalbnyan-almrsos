@@ -30,15 +30,30 @@ const templateTwo = (
 );
 
 let count = 0;
+const addOne = () => {
+    count++;
+    renderCounterApp();
+}
+const minusOne = () => {
+    count--;
+    renderCounterApp();
+}
+const reset = () => {
+    count = 0;
+    renderCounterApp();
+}
 
+const appRoot = document.getElementById('app');
+
+const renderCounterApp = () => {
 const templateThree = (
     <div>
         <h1>count: {count}</h1>
-        <button onClick={(count) => console.log('AddOne')}>+1</button>
-        <button onClick={(count) => console.log('MinusOne')}> -1</button>
-        <button onClick={(count) => console.log('Reset')}>reset</button>
+        <button onClick={addOne}>+1</button>
+        <button onClick={minusOne}> -1</button>
+        <button onClick={reset}>reset</button>
     </div>
 );
-const appRoot = document.getElementById('app');
-
 ReactDOM.render(templateThree, appRoot);
+}
+renderCounterApp();
