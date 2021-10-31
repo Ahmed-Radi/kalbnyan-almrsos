@@ -22,32 +22,11 @@ var onRemoveAll = function onRemoveAll() {
     addOptions();
 };
 
-var user = {
-    name: 'Ahmed Radi',
-    age: 26,
-    location: 'Egypt'
+var onMakeDecision = function onMakeDecision() {
+    var randomNum = Math.floor(Math.random() * app.options.length);
+    var option = app.options[randomNum];
+    alert(option);
 };
-var templateTwo = React.createElement(
-    'div',
-    null,
-    React.createElement(
-        'h1',
-        null,
-        user.name
-    ),
-    React.createElement(
-        'p',
-        null,
-        'Age: ',
-        user.age
-    ),
-    React.createElement(
-        'p',
-        null,
-        'Location: ',
-        user.location
-    )
-);
 
 var appRoot = document.getElementById('app');
 
@@ -67,9 +46,9 @@ var addOptions = function addOptions() {
         ),
         app.options.length > 0 ? 'Here are your options' : 'No options',
         React.createElement(
-            'p',
-            null,
-            app.options.length
+            'button',
+            { disabled: app.options.length === 0, onClick: onMakeDecision },
+            'What should I do?'
         ),
         React.createElement(
             'button',
