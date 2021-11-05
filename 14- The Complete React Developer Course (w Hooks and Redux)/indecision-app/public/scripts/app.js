@@ -17,6 +17,7 @@ var IndecisionApp = function (_React$Component) {
         var _this = _possibleConstructorReturn(this, (IndecisionApp.__proto__ || Object.getPrototypeOf(IndecisionApp)).call(this, props));
 
         _this.handleDeleteOptions = _this.handleDeleteOptions.bind(_this);
+        _this.handleDeleteOption = _this.handleDeleteOption.bind(_this);
         _this.handlePick = _this.handlePick.bind(_this);
         _this.handleAddOption = _this.handleAddOption.bind(_this);
         _this.state = {
@@ -29,8 +30,22 @@ var IndecisionApp = function (_React$Component) {
         key: 'handleDeleteOptions',
         value: function handleDeleteOptions() {
             this.setState(function () {
+                return { options: [] };
+            });
+            // this.setState(()=>{
+            //     return {
+            //         options: []
+            //     }
+            // })
+        }
+    }, {
+        key: 'handleDeleteOption',
+        value: function handleDeleteOption(optionToRemove) {
+            this.setState(function (prevState) {
                 return {
-                    options: []
+                    options: prevState.options.filter(function (option) {
+                        return optionToRemove !== option;
+                    })
                 };
             });
         }
@@ -50,10 +65,13 @@ var IndecisionApp = function (_React$Component) {
                 return 'This option already exist.';
             }
             this.setState(function (prevState) {
-                return {
-                    options: prevState.options.concat([option])
-                };
+                return { options: prevState.options.concat([option]) };
             });
+            // this.setState((prevState)=> {
+            //     return {
+            //         options : prevState.options.concat([option]),
+            //     }
+            // })
         }
     }, {
         key: 'render',
@@ -70,7 +88,8 @@ var IndecisionApp = function (_React$Component) {
                 }),
                 React.createElement(Options, {
                     options: this.state.options,
-                    handleDeleteOptions: this.handleDeleteOptions
+                    handleDeleteOptions: this.handleDeleteOptions,
+                    handleDeleteOption: this.handleDeleteOption
                 }),
                 React.createElement(AddOption, {
                     handleAddOption: this.handleAddOption
@@ -132,10 +151,14 @@ var Options = function Options(props) {
         React.createElement(
             'button',
             { onClick: props.handleDeleteOptions },
-            'Remove All'
+            ' Remove All'
         ),
         props.options.map(function (option) {
-            return React.createElement(Option, { key: option, optionText: option });
+            return React.createElement(Option, {
+                key: option,
+                optionText: option,
+                handleDeleteOption: props.handleDeleteOption
+            });
         })
     );
 };
@@ -144,7 +167,16 @@ var Option = function Option(props) {
     return React.createElement(
         'p',
         null,
-        props.optionText
+        props.optionText,
+        React.createElement(
+            'button',
+            {
+                onClick: function onClick(e) {
+                    props.handleDeleteOption(props.optionText);
+                }
+            },
+            'Remove'
+        )
     );
 };
 
@@ -172,10 +204,13 @@ var AddOption = function (_React$Component2) {
             var error = this.props.handleAddOption(option);
             e.target.elements.option.value = '';
             this.setState(function () {
-                return {
-                    error: error
-                };
+                return { error: error };
             });
+            // this.setState(() => {
+            //     return {
+            //         error: error,
+            //     }
+            // })
         }
     }, {
         key: 'render',
