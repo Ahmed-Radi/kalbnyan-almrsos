@@ -18,7 +18,7 @@ window.addEventListener('keypress',(e) => {
 
 })
 
-getPuzzle((error, puzzle) => {
+getPuzzle('2',(error, puzzle) => {
     if (error) {
         console.log(`Error: ${error}`)
     } else {
@@ -28,16 +28,25 @@ getPuzzle((error, puzzle) => {
 // check player status
 
 const countryCode = 'EG'
-const newRequest = new XMLHttpRequest()
-newRequest.addEventListener('readystatechange', (e) => {
-    if( e.target.readyState === 4 && e.target.status === 200 ) {
-        const data = JSON.parse(e.target.responseText)
-        const country = data.find((country) => country.alpha2Code === countryCode)
-        console.log(country.name)
-    } else if (e.target.status === 4) {
-        console.log('Unable to fetch data')
+getCountry(countryCode, (error, country) => {
+    if (error) {
+        console.log(`Error: ${error}`)
+    } else {
+        console.log(`Country name: ${country.name}`)
     }
 })
 
-newRequest.open('GET','https://restcountries.com/v2/all')
-newRequest.send()
+// const countryCode = 'EG'
+// const newRequest = new XMLHttpRequest()
+// newRequest.addEventListener('readystatechange', (e) => {
+//     if( e.target.readyState === 4 && e.target.status === 200 ) {
+//         const data = JSON.parse(e.target.responseText)
+//         const country = data.find((country) => country.alpha2Code === countryCode)
+//         console.log(country.name)
+//     } else if (e.target.status === 4) {
+//         console.log('Unable to fetch data')
+//     }
+// })
+
+// newRequest.open('GET','https://restcountries.com/v2/all')
+// newRequest.send()
