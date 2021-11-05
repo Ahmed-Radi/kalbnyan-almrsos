@@ -9,6 +9,12 @@ class IndecisionApp extends React.Component {
             options : props.options,
         }
     }
+    componentDidMount() {
+        console.log('Fetching Data')
+    }
+    componentDidUpdate() {
+        console.log('saving data')
+    }
     handleDeleteOptions () {
         this.setState(()=> ({ options: [] }))
         // this.setState(()=>{
