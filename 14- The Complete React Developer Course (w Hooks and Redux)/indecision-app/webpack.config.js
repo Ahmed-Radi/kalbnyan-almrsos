@@ -15,5 +15,6 @@ module.exports = {
                 // options: { presets: ['@babel/env','@babel/preset-react'] }
             },
         ]
-    }
+    },
+    devtool: 'eval'
 }
