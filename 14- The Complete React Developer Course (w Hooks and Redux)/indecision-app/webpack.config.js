@@ -16,5 +16,11 @@ module.exports = {
             },
         ]
     },
-    devtool: 'eval'
+    devtool: 'eval-cheap-module-source-map',
+    devServer: {
+        static: {
+            directory: path.join(__dirname, './public'),
+        },
+        // hot: true,
+    }
 }
