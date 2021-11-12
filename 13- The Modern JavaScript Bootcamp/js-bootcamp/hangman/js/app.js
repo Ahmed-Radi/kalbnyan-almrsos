@@ -18,22 +18,18 @@ window.addEventListener('keypress',(e) => {
 
 })
 
-getPuzzle('2',(error, puzzle) => {
-    if (error) {
-        console.log(`Error: ${error}`)
-    } else {
-        console.log(puzzle)
-    }
+getPuzzle('2').then((puzzle) => {
+    console.log(puzzle)
+}, (err) => {
+    console.log(`Error: ${err}`)
 })
 // check player status
 
 const countryCode = 'EG'
-getCountry(countryCode, (error, country) => {
-    if (error) {
-        console.log(`Error: ${error}`)
-    } else {
-        console.log(`Country name: ${country.name}`)
-    }
+getCountry(countryCode).then((country) => {
+    console.log(country.name)
+}, (err) => {
+    console.log(err)
 })
 
 // const countryCode = 'EG'
