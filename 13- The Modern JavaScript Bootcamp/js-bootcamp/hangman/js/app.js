@@ -10,7 +10,6 @@ guessEl.textContent = game1.statusMessage;
 window.addEventListener('keypress',(e) => {
     const guess = String.fromCharCode(e.charCode);
     game1.makeGuess(guess);
-
     // word you want to Guess
     puzzleEl.textContent = game1.puzzle;
     // Guesses left
@@ -28,7 +27,7 @@ getPuzzle('2').then((puzzle) => {
 const countryCode = 'EG'
 getCountry(countryCode).then((country) => {
     console.log(country.name)
-}, (err) => {
+}).catch((err) => {
     console.log(`Error: ${err}`)
 })
 

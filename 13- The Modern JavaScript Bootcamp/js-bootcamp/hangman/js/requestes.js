@@ -25,20 +25,32 @@ const getPuzzle = (wordCount) => {
 //     request.send()
 // })
 
-const getCountry = (countryCode) => new Promise((resolve, reject) => {
-    const newRequest = new XMLHttpRequest()
-    newRequest.addEventListener('readystatechange', (e) => {
-        if( e.target.readyState === 4 && e.target.status === 200 ) {
-            const data = JSON.parse(e.target.responseText)
-            const country = data.find((country) => country.alpha2Code === countryCode)
-            // console.log(country.name)
-            resolve(country)
-        } else if (e.target.status === 4) {
-            // console.log('Unable to fetch data')
-            reject('Unable to fetch data')
+const getCountry = (countryCode) => {
+    return fetch(`https://restcountries.com/v2/all`, {}).then((response) => {
+        if (response.status === 200) {
+            return response.json()
+        } else {
+            throw Error ('Unable to fetch the Country name')
         }
+    }).then((data) => {
+        return data.find((country) => country.alpha2Code === countryCode)
     })
+}
 
-    newRequest.open('GET','https://restcountries.com/v2/all')
-    newRequest.send()
-})
+// const getCountry = (countryCode) => new Promise((resolve, reject) => {
+//     const newRequest = new XMLHttpRequest()
+//     newRequest.addEventListener('readystatechange', (e) => {
+//         if( e.target.readyState === 4 && e.target.status === 200 ) {
+//             const data = JSON.parse(e.target.responseText)
+//             const country = data.find((country) => country.alpha2Code === countryCode)
+//             // console.log(country.name)
+//             resolve(country)
+//         } else if (e.target.status === 4) {
+//             // console.log('Unable to fetch data')
+//             reject('Unable to fetch data')
+//         }
+//     })
+
+//     newRequest.open('GET','https://restcountries.com/v2/all')
+//     newRequest.send()
+// })
