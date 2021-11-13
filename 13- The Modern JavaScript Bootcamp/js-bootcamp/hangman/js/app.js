@@ -20,7 +20,7 @@ window.addEventListener('keypress',(e) => {
 
 getPuzzle('2').then((puzzle) => {
     console.log(puzzle)
-}, (err) => {
+}).catch ((err) => {
     console.log(`Error: ${err}`)
 })
 // check player status
@@ -29,7 +29,7 @@ const countryCode = 'EG'
 getCountry(countryCode).then((country) => {
     console.log(country.name)
 }, (err) => {
-    console.log(err)
+    console.log(`Error: ${err}`)
 })
 
 // const countryCode = 'EG'
