@@ -24,8 +24,16 @@ getPuzzle('2').then((puzzle) => {
 })
 // check player status
 
-const countryCode = 'EG'
-getCountry(countryCode).then((country) => {
+// const countryCode = 'EG'
+// getCountry(countryCode).then((country) => {
+//     console.log(country.name)
+// }).catch((err) => {
+//     console.log(`Error: ${err}`)
+// })
+
+getLocation().then((location) => {
+    return getCountry(location.country)
+}).then((country) => {
     console.log(country.name)
 }).catch((err) => {
     console.log(`Error: ${err}`)

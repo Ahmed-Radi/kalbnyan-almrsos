@@ -54,3 +54,24 @@ const getCountry = (countryCode) => {
 //     newRequest.open('GET','https://restcountries.com/v2/all')
 //     newRequest.send()
 // })
+
+const getLocation = () => {
+    return fetch('http://ipinfo.io/156.222.117.237?token=e8a003c56939cc').then((response) => {
+    // return fetch('http://ipinfo.io/json?token=1a11bd55cc8f9c').then((response) => {
+        if (response.status === 200) {
+            return response.json()
+        } else {
+            throw new Error('Unable to fetch location')
+        }
+    })
+}
+
+// const getLocation = () => {
+//     return fetch(`https://ipinfo.io/156.222.117.237?token=e8a003c56939cc`, {}).then((response) => {
+//         if (response.status === 200) {
+//             return request.json()
+//         } else {
+//             throw Error ('Unable to fetch the Country name')
+//         }
+//     })
+// }
