@@ -34,6 +34,12 @@ const HelpPage = () => (
     </div>
 )
 
+const NotFoundPage = () => (
+    <div>
+        <p>404</p>
+    </div>
+)
+
 const router = (
     <Router>
         <Routes>
@@ -41,6 +47,7 @@ const router = (
             <Route path='/create' element={<AddExpensePage />} />
             <Route path='/edit' element={<EditExpensePage />} />
             <Route path='/help' element={<HelpPage />} />
+            <Route path="*" element={<NotFoundPage />} />
         </Routes>
     </Router>
 )
