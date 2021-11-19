@@ -13,3 +13,8 @@ button {
 button:disabled {
     cursor: not-allowed;
 }
+
+.active {
+    color: red;
+    font-weight: bold;
+}

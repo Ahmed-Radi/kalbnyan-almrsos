@@ -2,10 +2,10 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import {
     BrowserRouter as Router,
-    Switch,
     Routes,
     Route,
-    Link
+    Link,
+    NavLink
 } from "react-router-dom";
 import 'normalize.css/normalize.css'
 import './styles/styles.scss'
@@ -36,19 +36,32 @@ const HelpPage = () => (
 
 const NotFoundPage = () => (
     <div>
-        <p>404</p>
+        404 - <Link to="/">GO HOME</Link>
     </div>
+)
+
+const Header = () => (
+    <header>
+        <h1>Expensify</h1>
+        <NavLink to="/">Dashboard</NavLink>
+        <NavLink to="/create">Create Expense</NavLink>
+        <NavLink to="/edit">Edit Expense</NavLink>
+        <NavLink to="/help">Help</NavLink>
+    </header>
 )
 
 const router = (
     <Router>
-        <Routes>
-            <Route path='/' element={<ExpenseDashboardPage />} />
-            <Route path='/create' element={<AddExpensePage />} />
-            <Route path='/edit' element={<EditExpensePage />} />
-            <Route path='/help' element={<HelpPage />} />
-            <Route path="*" element={<NotFoundPage />} />
-        </Routes>
+        <div>
+            <Header />
+            <Routes>
+                <Route path='/' element={<ExpenseDashboardPage />} />
+                <Route path='/create' element={<AddExpensePage />} />
+                <Route path='/edit' element={<EditExpensePage />} />
+                <Route path='/help' element={<HelpPage />} />
+                <Route path="*" element={<NotFoundPage />} />
+            </Routes>
+        </div>
     </Router>
 )
 
