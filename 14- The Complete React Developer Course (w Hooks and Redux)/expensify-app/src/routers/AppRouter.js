@@ -10,8 +10,6 @@ import {
     BrowserRouter as Router,
     Routes,
     Route,
-    Link,
-    NavLink
 } from "react-router-dom";
 
 const AppRouter = () => (
@@ -21,7 +19,7 @@ const AppRouter = () => (
             <Routes>
                 <Route path='/' element={<ExpenseDashboardPage />} />
                 <Route path='/create' element={<AddExpensePage />} />
-                <Route path='/edit' element={<EditExpensePage />} />
+                <Route path='/edit/:id' element={<EditExpensePage />} />
                 <Route path='/help' element={<HelpPage />} />
                 <Route path="*" element={<NotFoundPage />} />
             </Routes>
