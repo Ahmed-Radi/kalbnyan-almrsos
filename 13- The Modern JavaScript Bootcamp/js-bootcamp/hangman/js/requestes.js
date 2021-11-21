@@ -1,12 +1,12 @@
 const getPuzzle = async (wordCount) => {
     const response = await fetch(`http://puzzle.mead.io/puzzle?wordCount=${wordCount}`, {})
 
-        if (response.status === 200) {
-            const data = await response.json()
-            return data.puzzle
-        } else {
-            throw Error ('Unable to fetch the puzzle')
-        }
+    if (response.status === 200) {
+        const data = await response.json()
+        return data.puzzle
+    } else {
+        throw Error ('Unable to fetch the puzzle')
+    }
 }
 
 // const getPuzzleOld = (wordCount) => {
@@ -37,16 +37,19 @@ const getPuzzle = async (wordCount) => {
 //     request.send()
 // })
 
-const getCountry = (countryCode) => {
-    return fetch(`https://restcountries.com/v2/all`, {}).then((response) => {
-        if (response.status === 200) {
-            return response.json()
-        } else {
-            throw Error ('Unable to fetch the Country name')
-        }
-    }).then((data) => {
+const getCurrentCountry = async () => {
+    const location = await getLocation();
+    return await getCountry(location.country)
+}
+
+const getCountry = async (countryCode) => {
+    const response = await fetch(`https://restcountries.com/v2/all`, {})
+    if (response.status === 200) {
+        const data = await response.json()
         return data.find((country) => country.alpha2Code === countryCode)
-    })
+    } else {
+        throw Error ('Unable to fetch the Country name')
+    }
 }
 
 // const getCountry = (countryCode) => new Promise((resolve, reject) => {
@@ -67,15 +70,13 @@ const getCountry = (countryCode) => {
 //     newRequest.send()
 // })
 
-const getLocation = () => {
-    return fetch('http://ipinfo.io/156.222.117.237?token=e8a003c56939cc').then((response) => {
-    // return fetch('http://ipinfo.io/json?token=1a11bd55cc8f9c').then((response) => {
-        if (response.status === 200) {
-            return response.json()
-        } else {
-            throw new Error('Unable to fetch location')
-        }
-    })
+const getLocation = async () => {
+    const response = await fetch('http://ipinfo.io/156.222.117.237?token=e8a003c56939cc', {})
+    if (response.status === 200) {
+        return response.json()
+    } else {
+        throw new Error('Unable to get current location')
+    }
 }
 
 // const getLocation = () => {
