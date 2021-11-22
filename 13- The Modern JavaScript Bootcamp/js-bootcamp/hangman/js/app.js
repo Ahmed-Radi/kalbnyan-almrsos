@@ -15,9 +15,15 @@ window.addEventListener('keypress',(e) => {
 
 const render = () => {
     // word you want to Guess
-    puzzleEl.textContent = game1.puzzle;
+    puzzleEl.innerHTML = ''; //game1.puzzle
     // Guesses left
     guessEl.textContent = game1.statusMessage;
+    // game1.puzzleEl.split('') // convert string to array
+    game1.puzzle.split('').forEach((letter) => {
+        const spanWithWord = document.createElement('span')
+        spanWithWord.textContent = letter
+        puzzleEl.appendChild(spanWithWord)
+    })
 }
 const startGame = async () => {
     const puzzle = await getPuzzle('2');
