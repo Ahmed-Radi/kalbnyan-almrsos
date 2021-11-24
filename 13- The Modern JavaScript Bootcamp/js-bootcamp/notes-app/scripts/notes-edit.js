@@ -16,7 +16,6 @@ titleElement.value = note.title
 bodyElement.value = note.body
 dateElement.textContent = generateLastEditedMessage(note.updatedAt)
 
-
 titleElement.addEventListener('input', (e) => {
     note.title = e.target.value
     note.updatedAt = moment().valueOf()

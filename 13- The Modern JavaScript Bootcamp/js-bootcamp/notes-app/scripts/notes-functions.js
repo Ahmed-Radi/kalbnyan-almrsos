@@ -18,8 +18,7 @@ const saveNotes = (notes) => {
 // Remove a note from the list
 const removeNote = (id) => {
     const noteIndex = notes.findIndex((note) => note.id === id)
-
-    if(noteIndex > -1){
+    if (noteIndex > -1) {
         notes.splice(noteIndex, 1)
     }
 }
@@ -31,7 +30,7 @@ const generateNoteDOM = (note) => {
     const statusEL = document.createElement('p');
 
     // Setup the note title text
-    if(note.title.length > 0) {
+    if (note.title.length > 0) {
         textEl.textContent = note.title;
     } else {
         textEl.textContent = 'Unnamed Notes';
@@ -54,9 +53,9 @@ const generateNoteDOM = (note) => {
 
 // Sort your notes by one of three ways
 const sortNotes = (notes, sortBy) => {
-    if(sortBy === 'byEdited') {
+    if (sortBy === 'byEdited') {
         return notes.sort( (a, b) => {
-            if(a.updatedAt > b.updatedAt){
+            if (a.updatedAt > b.updatedAt){
                 return -1
             } else if (a.updatedAt < b.updatedAt) {
                 return 1
@@ -64,7 +63,7 @@ const sortNotes = (notes, sortBy) => {
                 return 0
             }
         })
-    } else if(sortBy === 'byCreated') {
+    } else if (sortBy === 'byCreated') {
         return notes.sort( (a, b) => {
             if (a.createdAt > b.createdAt) {
                 return -1
@@ -98,7 +97,7 @@ const renderNotes = (notes, filters) => {
 
     notesEl.innerHTML = '' //used to remove all notes to select specify notes only
 
-    if(filterNotes.length > 0) {
+    if (filterNotes.length > 0) {
         //show specify notes
         filterNotes.forEach( (note) => {
             const noteEl = generateNoteDOM(note)

@@ -34,30 +34,9 @@ document.querySelector('#filter-by').addEventListener('change', (e) => {
     renderNotes(notes, filters)
 })
 
-// document.querySelector('#remove-all').addEventListener('click', () =>{
-//     document.querySelectorAll('.note').forEach( (note) => {
-//         note.remove();
-//     })
-// })
-
 window.addEventListener('storage', (e) => {
     if (e.key === 'notes') {
         notes = JSON.parse(e.newValue)
         renderNotes(notes, filters)
     }
 })
-
-// document.querySelector('#name-form').addEventListener('submit', (e) => {
-//     e.preventDefault();
-//     console.log(e.target.elements.firstName.value)
-//     e.target.elements.firstName.value = ''
-// })
-
-// const ps = document.querySelectorAll('.info')
-// ps.forEach( (p) => {
-//     p.textContent = '*******'
-// })
-
-// const newParagraph = document.createElement('p');
-// newParagraph.textContent = 'The Ahmed Radi';
-// document.querySelector('body').appendChild(newParagraph)

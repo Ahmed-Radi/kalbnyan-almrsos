@@ -1,6 +1,6 @@
 'use strict'
 
-// Read exiscting todos from localStorage
+// Read existing todos from localStorage
 const getSaveTodos = () => {
     const todosJSON = localStorage.getItem('todos')
     try {
@@ -54,7 +54,6 @@ const renderTodos = (todos, filters) => {
         messageEl.classList.add('empty-message')
         todoEl.appendChild(messageEl)
     }
-
 }
 
 // Get the DOM elements from an individual note
@@ -93,8 +92,6 @@ const generateTodoDOM = (todo) => {
         saveTodos(todos);
         renderTodos(todos, filters);
     })
-
-
     return todoEl;
 }
 const generateSummaryDOM = (countUnComplete) => {
