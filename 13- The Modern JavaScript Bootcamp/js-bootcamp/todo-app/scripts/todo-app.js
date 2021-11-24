@@ -19,19 +19,22 @@ document.querySelector('#search-text').addEventListener('input', (e) => {
 
 // Add Todos to the page
 document.querySelector('#todo-name').addEventListener('submit', (e) => {
+    const text = e.target.elements.todoText.value.trim();
     e.preventDefault();
 
-    //Add todo to array Todos
-    todos.push({
-        id: uuidv4(),
-        text: e.target.elements.todoText.value,
-        complete: false,
-    },)
-    saveTodos(todos)
-    renderTodos(todos, filters)
+    if (text.length > 0) {
+        //Add todo to array Todos
+        todos.push({
+            id: uuidv4(),
+            text,
+            complete: false,
+        },)
+        saveTodos(todos)
+        renderTodos(todos, filters)
 
-    //remove value from input after submit
-    e.target.elements.todoText.value = '';
+        //remove value from input after submit
+        e.target.elements.todoText.value = '';
+    }
 })
 
 // checkbox Hide all complete todo
