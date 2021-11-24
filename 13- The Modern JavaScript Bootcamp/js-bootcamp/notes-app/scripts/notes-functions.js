@@ -57,7 +57,7 @@ const sortNotes = (notes, sortBy) => {
         return notes.sort( (a, b) => {
             if(a.updatedAt > b.updatedAt){
                 return -1
-            } else if(a.updatedAt < b.updatedAt){
+            } else if (a.updatedAt < b.updatedAt) {
                 return 1
             } else {
                 return 0
@@ -65,19 +65,19 @@ const sortNotes = (notes, sortBy) => {
         })
     } else if(sortBy === 'byCreated') {
         return notes.sort( (a, b) => {
-            if(a.createdAt > b.createdAt){
+            if (a.createdAt > b.createdAt) {
                 return -1
-            } else if(a.createdAt < b.createdAt){
+            } else if (a.createdAt < b.createdAt) {
                 return 1
             } else {
                 return 0
             }
         })
-    } else if(sortBy === 'alphabetical') {
+    } else if (sortBy === 'alphabetical') {
         return notes.sort( (a, b) => {
-            if(a.title.toLowerCase() < b.title.toLowerCase()){
+            if (a.title.toLowerCase() < b.title.toLowerCase()) {
                 return -1;
-            } else if(a.title.toLowerCase() > b.title.toLowerCase()){
+            } else if (a.title.toLowerCase() > b.title.toLowerCase()) {
                 return 1;
             } else {
                 return 0;
@@ -91,8 +91,8 @@ const sortNotes = (notes, sortBy) => {
 
 // Render application notes
 const renderNotes = (notes, filters) => {
-    note = sortNotes(notes, filters.sortBy);
-    note = sortNotes(notes, filters.sortBy);
+    // const notesEl = document.querySelector('#notes')
+    notes = sortNotes(notes, filters.sortBy);
     const filterNotes = notes.filter( (note) => {
         return note.title.toLowerCase().includes(filters.searchText.toLowerCase())
     })
@@ -105,6 +105,6 @@ const renderNotes = (notes, filters) => {
 }
 
 // Generate the last edited message
-const generateLastEditedMessage = (timeStamp) => {
-    return `last edited ${moment(timeStamp).fromNow()} ago`;
+const generateLastEditedMessage = (timestamp) => {
+    return `Last edited ${moment(timestamp).fromNow()} ago`;
 }

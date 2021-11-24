@@ -6,8 +6,8 @@ const removeElement = document.querySelector('#remove-note')
 const dateElement = document.querySelector('#last-edited')
 let noteId = location.hash.substring(1)
 let notes = getSaveNotes()
-
 let note = notes.find((note) => noteId === note.id)
+
 if(!note) {
     location.assign('./index.html')
 }
