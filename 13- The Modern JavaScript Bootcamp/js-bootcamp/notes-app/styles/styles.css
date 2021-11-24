@@ -33,7 +33,18 @@ button {
 a {
     color: #396684;
 }
+/* my edits */
 
+.m-b {
+    margin-bottom: 20px;
+}
+.f-weight {
+    font-weight: bold;
+}
+
+.r-underline:hover {
+    text-decoration: none;
+}
 /* Container */
 
 .container {
