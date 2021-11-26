@@ -1,9 +1,37 @@
 import { createStore, combineReducers } from 'redux';
+import { v4 as uuidv4 } from 'uuid';
 
-const expensesReducerDefaultState = []
+// ADD_EXPENSE
+const addExpense = ({
+    description = '',
+    note = '',
+    amount = 0,
+    createdAt = 0
+} = {}) => ({
+    type: 'ADD_EXPENSE',
+    expense: {
+        id: uuidv4(),
+        description,
+        note,
+        amount,
+        createdAt
+    }
+})
 
-const expensesReducer = (state = expensesReducerDefaultState, action) => {
+// REMOVE_EXPENSE
+const removeExpense = ({ id } = {}) => ({
+    type: 'REMOVE_EXPENSE',
+    id
+})
+
+const expenseReducerDefaultState = []
+
+const expenseReducer = (state = expenseReducerDefaultState, action) => {
     switch (action.type) {
+        case 'ADD_EXPENSE':
+            return [...state,action.expense]
+        case 'REMOVE_EXPENSE':
+            return state.filter(({ id }) => id !== action.id)
         default:
             return state;
     }
@@ -24,14 +52,25 @@ const filterReducer = (state = filterReducerDefaultState, action) => {
 }
 
 const store = createStore(combineReducers({
-    expenses: expensesReducer,
+    expense: expenseReducer,
     filters: filterReducer,
 }))
 
-console.log(store.getState())
+store.subscribe(() => {
+    console.log(store.getState())
+})
+
+const expenseOne = store.dispatch(addExpense({ description: 'Hi I am Ahmed Radi',amount: 200000 }));
+const expenseTwo = store.dispatch(addExpense({ description: 'Hi I am Ali Radi',amount: 1 }));
+// store.dispatch(addExpense({ description: 'Hi I am HHH Radi',amount: 100 }));
+// store.dispatch(addExpense({ description: 'Hi I am GOOD Radi',amount: 230 }));
+
+store.dispatch(removeExpense({
+    id: expenseOne.expense.id
+}))
 
 const demoState = {
-    expenses: [{
+    expense: [{
         id: 'adasasjpcapvbxvo',
         description: 'Game rent',
         note: 'This is final payment for the game.',
