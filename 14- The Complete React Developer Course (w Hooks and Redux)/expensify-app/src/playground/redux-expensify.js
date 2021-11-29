@@ -134,7 +134,13 @@ const getVisibleExpenses = (expenses, { text, sortBy, startDate, endDate }) => {
         const endDateMatch = typeof endDate !== 'number' || expense.createdAt <= endDate;
         const textMatch = expense.description.toLowerCase().includes(text.toLowerCase());
         return startDateMatch && endDateMatch && textMatch;
-    });
+    }).sort((a, b) => {
+        if (sortBy === 'date') {
+            return a.createdAt < b.createdAt ? 1 : -1;
+        } else if (sortBy === 'amount') {
+            return a.amount < b.amount ? 1 : -1;
+        }
+    })
 };
 
 // Store creation
@@ -162,15 +168,15 @@ const expenseTwo = store.dispatch(addExpense({ description: 'Hi I am Ali Radi',a
 
 // store.dispatch(editExpense(expenseTwo.expense.id, { amount: 500 }));
 
-store.dispatch(setTextFilter('ahmed'));
+// store.dispatch(setTextFilter('ahmed'));
 // store.dispatch(setTextFilter());
 
-// store.dispatch(sortByAmount());
+store.dispatch(sortByAmount());
 // store.dispatch(sortByDate());
 
-store.dispatch(setStartDate(0));
+// store.dispatch(setStartDate(0));
 // store.dispatch(setStartDate());
-store.dispatch(setEndDate(1250));
+// store.dispatch(setEndDate(1250));
 
 const demoState = {
     expenses: [{
