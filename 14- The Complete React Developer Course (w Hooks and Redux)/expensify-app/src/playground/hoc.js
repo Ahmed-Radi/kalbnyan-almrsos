@@ -30,7 +30,7 @@ const requireAuthentication = (WrappedComponent) => {
                 <WrappedComponent {...props} />
             ) : (
                 <p>Please login to view the info</p>
-                )}
+            )}
         </div>
     );
 };
