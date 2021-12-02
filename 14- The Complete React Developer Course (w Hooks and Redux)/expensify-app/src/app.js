@@ -11,12 +11,12 @@ import './styles/styles.scss'
 
 const store = configureStore();
 
-store.dispatch(addExpense({ description: 'Hdi',amount: 20, createdAt: 1000 }))
+store.dispatch(addExpense({ description: 'new Hdi',amount: 20, createdAt: 1000 }))
 store.dispatch(addExpense({description: 'new ||',amount: 200}))
 store.dispatch(setTextFilter('new'))
 
 setTimeout(() => {
-    store.dispatch(setTextFilter('new 2'))
+    store.dispatch(setTextFilter('new ||'))
 }, 3000)
 
 const state = store.getState()
