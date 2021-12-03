@@ -13,11 +13,7 @@ const store = configureStore();
 
 store.dispatch(addExpense({ description: 'new Hdi',amount: 20, createdAt: 1000 }))
 store.dispatch(addExpense({description: 'new ||',amount: 200}))
-store.dispatch(setTextFilter('new'))
-
-setTimeout(() => {
-    store.dispatch(setTextFilter('new ||'))
-}, 3000)
+store.dispatch(addExpense({ description: 'Rent',amount: 1000, createdAt: 1000 }))
 
 const state = store.getState()
 const visibleExpenses = getVisibleExpenses(state.expenses, state.filters);
