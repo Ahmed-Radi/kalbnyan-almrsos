@@ -1,11 +1,7 @@
-var fName = 'Ahmed'
-console.log(fName)
+import { add, name } from './utilities'
+import { convert } from './scream'
 
-class Hangman {
-    myMethod() {
-        return 'Testing'
-    }
-}
-
-const hangman = new Hangman()
-console.log(hangman.myMethod())
+console.log('index.js')
+console.log(add(10, 5))
+console.log(name)
+console.log(convert('ahmed'))
