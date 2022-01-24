@@ -1,5 +1,5 @@
 import { add, name } from './utilities'
-import { convert } from './scream'
+import convert from './scream'
 
 console.log('index.js')
 console.log(add(10, 5))

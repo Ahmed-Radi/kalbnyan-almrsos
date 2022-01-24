@@ -1,1 +1,3 @@
-export const convert = (word) => `${word.toUpperCase()}!`;
+const convert = (word) => `${word.toUpperCase()}!`;
+
+export { convert as default }
