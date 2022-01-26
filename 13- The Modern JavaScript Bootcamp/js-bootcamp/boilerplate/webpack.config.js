@@ -18,5 +18,15 @@ module.exports = {
             }]
         }]
     },
+    devServer: {
+        static: {
+            directory: path.resolve(__dirname, 'public'),
+        },
+        devMiddleware: {
+            publicPath: '/scripts/'
+        },
+        // open: true, // To open browser automatically after running code
+        hot: "only",
+    },
     // mode: 'development',
 }
