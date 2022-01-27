@@ -28,5 +28,5 @@ module.exports = {
         // open: true, // To open browser automatically after running code
         hot: "only",
     },
-    // mode: 'development',
+    devtool: 'source-map',
 }

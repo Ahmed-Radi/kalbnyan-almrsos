@@ -4,8 +4,8 @@
     "description": "",
     "main": "input.js",
     "scripts": {
-        "dev-server": "webpack-dev-server",
-        "build": "babel src/index.js --out-file public/scripts/bundle.js --presets env --watch"
+        "dev-server": "webpack-dev-server --mode development",
+        "build": "webpack --mode production"
     },
     "author": "",
     "license": "ISC",
